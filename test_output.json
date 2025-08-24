@@ -1,0 +1,106 @@
+{
+  "user_query": "show me all users",
+  "dialect": "postgres",
+  "gen_k": 3,
+  "max_loops": 2,
+  "loop_count": 0,
+  "db_schema": null,
+  "semantic_schema": null,
+  "schema_context": {
+    "tables": [
+      "users",
+      "orders",
+      "products"
+    ],
+    "sample_schema": {
+      "users": {
+        "columns": [
+          "id",
+          "name",
+          "email",
+          "created_at"
+        ],
+        "primary_key": "id"
+      },
+      "orders": {
+        "columns": [
+          "id",
+          "user_id",
+          "product_id",
+          "quantity",
+          "created_at"
+        ],
+        "primary_key": "id",
+        "foreign_keys": [
+          {
+            "column": "user_id",
+            "references": "users.id"
+          },
+          {
+            "column": "product_id",
+            "references": "products.id"
+          }
+        ]
+      }
+    }
+  },
+  "intent_json": {
+    "action": "SELECT",
+    "tables": [
+      "users"
+    ],
+    "columns": [],
+    "conditions": [],
+    "ambiguity_detected": false
+  },
+  "plan": {
+    "tables": [
+      "users"
+    ],
+    "columns": [],
+    "joins": [],
+    "where_conditions": []
+  },
+  "plan_ok": true,
+  "plan_confidence": 0.8,
+  "ambiguity": false,
+  "clarifying_question": null,
+  "clarifying_answer": null,
+  "few_shots": null,
+  "sql_candidates": [
+    "SELECT * FROM users LIMIT 10",
+    "SELECT id, name FROM users LIMIT 10",
+    "SELECT id, name FROM users LIMIT 10"
+  ],
+  "sql": "SELECT * FROM users LIMIT 10",
+  "gen_attempts": 1,
+  "validation_ok": true,
+  "val_reasons": [],
+  "val_signals": {},
+  "val_attempts": 1,
+  "exec_preview": {
+    "execution_time": 0.1,
+    "row_count": 2,
+    "column_names": [
+      "id",
+      "name",
+      "email"
+    ],
+    "sql": "SELECT * FROM users LIMIT 10"
+  },
+  "result_sample": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "john@example.com"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com"
+    }
+  ],
+  "exec_rows": 2,
+  "error": null,
+  "metrics": {}
+}

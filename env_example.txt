@@ -1,0 +1,23 @@
+# OpenAI API Key
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Database Configuration (optional for now)
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=sql_assistant_langchain
+DB_USER=postgres
+DB_PASSWORD=your_password_here
+DB_DIALECT=postgresql
+
+# Intent Interpretation Policy
+INTENT_MIN_CONFIDENCE=0.3
+INTENT_DEFAULT_CONFIDENCE=0.5
+INTENT_FALLBACK_CONFIDENCE=0.1
+INTENT_DEFAULT_ACTION=SELECT
+INTENT_VALID_ACTIONS=SELECT,COUNT,AGGREGATE,SEARCH,COMPARE
+INTENT_DEFAULT_COMPLEXITY=simple
+INTENT_VALID_COMPLEXITIES=simple,moderate,complex
+
+# Schema Prefiltering Limits
+INTENT_MAX_TABLES=8
+INTENT_MAX_COLUMNS_PER_TABLE=10

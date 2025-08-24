@@ -1,0 +1,27 @@
+{
+  "examples": [
+    {
+      "query": "What is the total amount of actual bookings for SaaS consumption in each year?",
+      "sql": "SELECT YEAR, SUM(ACTUAL_BOOKINGS) AS total_bookings FROM raw_data WHERE IntersightConsumption = 'SaaS' GROUP BY YEAR;",
+      "explanation": "This query directly follows the plan DSL by selecting the year and summing the actual bookings for records where the consumption type is 'SaaS', grouped by year."
+    },
+    {
+      "query": "Calculate the yearly total bookings for customers using SaaS.",
+      "sql": "SELECT YEAR, SUM(ACTUAL_BOOKINGS) AS yearly_total FROM raw_data WHERE IntersightConsumption = 'SaaS' GROUP BY YEAR;",
+      "explanation": "This query uses a similar structure to the first example but changes the wording slightly. It still sums the actual bookings for SaaS consumption, ensuring clarity in the output."
+    },
+    {
+      "query": "Show the total bookings per year for SaaS customers.",
+      "sql": "SELECT YEAR, SUM(ACTUAL_BOOKINGS) FROM raw_data WHERE IntersightConsumption = 'SaaS' GROUP BY YEAR;",
+      "explanation": "This example omits the alias for the summed column, demonstrating that while it's a best practice to use aliases for clarity, it's not strictly necessary for functionality."
+    },
+    {
+      "query": "List the total actual bookings for each year where the consumption type is SaaS.",
+      "sql": "SELECT YEAR, SUM(ACTUAL_BOOKINGS) FROM raw_data WHERE IntersightConsumption = 'SaaS' GROUP BY YEAR ORDER BY YEAR;",
+      "explanation": "This query adds an ORDER BY clause to sort the results by year, showcasing an additional approach to presenting the data in a more organized manner."
+    }
+  ],
+  "reasoning": "These examples were chosen to illustrate various ways to achieve the same goal of aggregating actual bookings by year for SaaS consumption. They demonstrate the flexibility in phrasing natural language queries while adhering to the schema and SQL dialect, ensuring correctness and clarity in the resulting SQL statements.",
+  "schema_hash": "7c48227940d749428e81df39b1941cce",
+  "generated_at": "2025-08-24T01:29:09.168746"
+}

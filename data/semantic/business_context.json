@@ -1,0 +1,272 @@
+{
+  "tables": {
+    "raw_data": {
+      "display_name": "Sales Transaction Data",
+      "description": "Comprehensive sales transaction data containing customer information, product details, pricing, and revenue metrics for Intersight product sales across different markets and time periods.",
+      "business_purpose": "Track sales performance, analyze revenue patterns, monitor customer segments, and evaluate market penetration across different verticals and geographies.",
+      "columns": {
+        "CUSTOMER_NAME": {
+          "alias": "Customer ID",
+          "meaning": "Unique identifier for each customer account",
+          "description": "Customer identification code used for tracking individual customer transactions and relationships",
+          "data_type": "identifier",
+          "business_context": "Primary customer identifier for sales tracking and customer relationship management"
+        },
+        "LEVEL_1_NAME": {
+          "alias": "Geographic Region",
+          "meaning": "Primary geographic region where the customer is located",
+          "description": "Top-level geographic division (Americas, EMEA, APJC) for regional sales analysis and territory management",
+          "data_type": "categorical",
+          "possible_values": ["Americas", "EMEA", "APJC"],
+          "business_context": "Used for regional sales performance analysis and territory planning"
+        },
+        "CONTRACT_DURATION": {
+          "alias": "Contract Length",
+          "meaning": "Duration of the service contract in months",
+          "description": "Length of the subscription or service agreement, typically ranging from 12 to 60 months",
+          "data_type": "numeric",
+          "unit": "months",
+          "range": "12-60",
+          "business_context": "Critical for revenue recognition, customer lifetime value calculation, and renewal planning"
+        },
+        "YEAR": {
+          "alias": "Transaction Year",
+          "meaning": "Calendar year when the transaction occurred",
+          "description": "Year of the sales transaction for temporal analysis and year-over-year comparisons",
+          "data_type": "temporal",
+          "business_context": "Used for trend analysis, annual planning, and historical performance tracking"
+        },
+        "FISCAL_QUARTER_ID": {
+          "alias": "Fiscal Quarter",
+          "meaning": "Fiscal quarter identifier for the transaction",
+          "description": "Fiscal quarter (e.g., 20212 = 2021 Q2) for quarterly reporting and seasonal analysis",
+          "data_type": "temporal",
+          "business_context": "Essential for quarterly business reviews and seasonal trend analysis"
+        },
+        "QUARTER": {
+          "alias": "Quarter Name",
+          "meaning": "Human-readable quarter designation",
+          "description": "Formatted quarter name (e.g., '2021-Q2') for reporting and analysis",
+          "data_type": "categorical",
+          "business_context": "Used in reports and dashboards for easy quarter identification"
+        },
+        "QUARTER_NAME": {
+          "alias": "Quarter Short",
+          "meaning": "Short quarter name",
+          "description": "Abbreviated quarter name (e.g., 'Q2') for compact display",
+          "data_type": "categorical",
+          "business_context": "Used in charts and compact displays"
+        },
+        "SHORT_QUARTER_NAME": {
+          "alias": "Quarter Display",
+          "meaning": "Display-friendly quarter name",
+          "description": "User-friendly quarter display format (e.g., 'Q2 '21')",
+          "data_type": "categorical",
+          "business_context": "Used in user interfaces and reports"
+        },
+        "SCMS_NAME": {
+          "alias": "Customer Segment",
+          "meaning": "Customer segment classification",
+          "description": "Customer segment based on size and type (Enterprise, Commercial, etc.)",
+          "data_type": "categorical",
+          "possible_values": ["ENTERPRISE", "COMMERCIAL", "PUBLIC SECTOR"],
+          "business_context": "Used for segment-specific sales strategies and resource allocation"
+        },
+        "TOP_VERTICAL_MARKET_NAME": {
+          "alias": "Industry Vertical",
+          "meaning": "Primary industry vertical of the customer",
+          "description": "Main industry sector of the customer (e.g., Financial Services, Healthcare, Technology)",
+          "data_type": "categorical",
+          "possible_values": ["Financial Services", "Healthcare", "Technology", "Manufacturing", "Retail", "Education", "Government", "Telecommunications"],
+          "business_context": "Critical for industry-specific sales strategies and market penetration analysis"
+        },
+        "DETAIL_VERTICAL_MARKET_NAME": {
+          "alias": "Sub-Industry",
+          "meaning": "Detailed industry sub-category",
+          "description": "Specific sub-industry or vertical market segment for targeted analysis",
+          "data_type": "categorical",
+          "business_context": "Used for highly targeted sales and marketing campaigns"
+        },
+        "COUNTRY": {
+          "alias": "Country",
+          "meaning": "Country where the customer is located",
+          "description": "Country name for geographic analysis and compliance requirements",
+          "data_type": "categorical",
+          "business_context": "Used for geographic sales analysis, compliance, and local market strategies"
+        },
+        "IntersightLicenseTier": {
+          "alias": "License Tier",
+          "meaning": "Intersight product license tier level",
+          "description": "License tier determines feature access and support level (Essentials, Advantage, Premier)",
+          "data_type": "categorical",
+          "possible_values": ["Essentials", "Advantage", "Premier"],
+          "business_context": "Determines pricing, features, and support level - critical for revenue optimization"
+        },
+        "IntersightConsumption": {
+          "alias": "Consumption Model",
+          "meaning": "How the Intersight product is consumed",
+          "description": "Consumption model indicates how customers use the product (SaaS, vApp, On-Premises)",
+          "data_type": "categorical",
+          "possible_values": ["SaaS", "vApp", "On-Premises", "Hybrid", "pApp"],
+          "business_context": "Critical for understanding customer preferences and deployment strategies"
+        },
+        "IntersightProduct": {
+          "alias": "Product Name",
+          "meaning": "Specific Intersight product or service",
+          "description": "The specific Intersight product or service being sold (e.g., Intersight Core, Intersight Assist)",
+          "data_type": "categorical",
+          "possible_values": ["Intersight Core", "Intersight Assist", "Intersight Virtual Appliance", "Intersight SaaS"],
+          "business_context": "Product-specific analysis for feature adoption and product development"
+        },
+        "IntersightEnterpriseAgreement": {
+          "alias": "Enterprise Agreement",
+          "meaning": "Enterprise agreement status",
+          "description": "Whether the customer has an enterprise agreement (EA) or is on a transactional basis",
+          "data_type": "categorical",
+          "possible_values": ["EA", "Non-EA"],
+          "business_context": "Affects pricing, terms, and customer relationship management"
+        },
+        "QUANTITY": {
+          "alias": "License Quantity",
+          "meaning": "Number of licenses purchased",
+          "description": "Quantity of licenses or units sold in the transaction",
+          "data_type": "numeric",
+          "unit": "licenses",
+          "business_context": "Direct revenue driver and indicator of customer size and needs"
+        },
+        "LIST_PRICE": {
+          "alias": "List Price",
+          "meaning": "Standard list price per unit",
+          "description": "Published list price per license before any discounts or negotiations",
+          "data_type": "currency",
+          "unit": "USD",
+          "business_context": "Baseline for pricing analysis and discount calculations"
+        },
+        "ACTUAL_BOOKINGS": {
+          "alias": "Actual Revenue",
+          "meaning": "Actual revenue booked from the transaction",
+          "description": "Final revenue amount after all discounts, negotiations, and adjustments",
+          "data_type": "currency",
+          "unit": "USD",
+          "business_context": "Primary revenue metric for financial reporting and performance analysis"
+        },
+        "BASE_PRICE": {
+          "alias": "Base Price",
+          "meaning": "Base price before additional services",
+          "description": "Base product price before add-on services, support, or other enhancements",
+          "data_type": "currency",
+          "unit": "USD",
+          "business_context": "Used for product margin analysis and pricing strategy"
+        },
+        "ANNUALIZED_MONTHLY_RECURRING_REVENUE": {
+          "alias": "Annualized MRR",
+          "meaning": "Annualized monthly recurring revenue",
+          "description": "Monthly recurring revenue annualized for the contract period",
+          "data_type": "currency",
+          "unit": "USD",
+          "business_context": "Key metric for SaaS business model analysis and valuation"
+        },
+        "TRANSACTIONAL_MONTHLY_RECURRING_REVENUE": {
+          "alias": "Transactional MRR",
+          "meaning": "Transactional monthly recurring revenue",
+          "description": "Monthly recurring revenue for this specific transaction",
+          "data_type": "currency",
+          "unit": "USD",
+          "business_context": "Used for monthly revenue tracking and forecasting"
+        },
+        "QuantityAdj": {
+          "alias": "Adjusted Quantity",
+          "meaning": "Quantity adjusted for special circumstances",
+          "description": "Quantity adjusted for promotions, bundles, or special pricing arrangements",
+          "data_type": "numeric",
+          "unit": "licenses",
+          "business_context": "Used for accurate revenue calculations and reporting"
+        },
+        "QTY_IN_SUBS_MONTHS": {
+          "alias": "Subscription Months",
+          "meaning": "Total subscription months in the contract",
+          "description": "Total number of months covered by the subscription (Quantity × Contract Duration)",
+          "data_type": "numeric",
+          "unit": "months",
+          "business_context": "Used for subscription value calculations and renewal planning"
+        }
+      }
+    }
+  },
+  "synonyms": {
+    "customer": ["CUSTOMER_NAME", "customer id", "client", "account"],
+    "region": ["LEVEL_1_NAME", "geographic region", "territory", "area"],
+    "contract": ["CONTRACT_DURATION", "contract length", "agreement duration", "subscription period"],
+    "year": ["YEAR", "transaction year", "fiscal year", "calendar year"],
+    "quarter": ["QUARTER", "FISCAL_QUARTER_ID", "quarterly", "Q1", "Q2", "Q3", "Q4"],
+    "segment": ["SCMS_NAME", "customer segment", "market segment", "business segment"],
+    "industry": ["TOP_VERTICAL_MARKET_NAME", "vertical", "sector", "industry vertical"],
+    "country": ["COUNTRY", "nation", "geography", "location"],
+    "license": ["IntersightLicenseTier", "license tier", "tier", "edition"],
+    "consumption": ["IntersightConsumption", "consumption model", "deployment model", "delivery model"],
+    "papp": ["IntersightConsumption", "pApp", "consumption model"],
+    "product": ["IntersightProduct", "intersight product", "service", "solution"],
+    "agreement": ["IntersightEnterpriseAgreement", "enterprise agreement", "EA", "contract type"],
+    "quantity": ["QUANTITY", "qty", "units", "licenses", "seats"],
+    "price": ["LIST_PRICE", "list price", "published price", "standard price"],
+    "revenue": ["ACTUAL_BOOKINGS", "actual revenue", "bookings", "sales", "income"],
+    "base_price": ["BASE_PRICE", "base cost", "product price"],
+    "mrr": ["ANNUALIZED_MONTHLY_RECURRING_REVENUE", "monthly recurring revenue", "recurring revenue"],
+    "monthly_revenue": ["TRANSACTIONAL_MONTHLY_RECURRING_REVENUE", "monthly revenue", "recurring income"],
+    "adjusted_qty": ["QuantityAdj", "adjusted quantity", "modified quantity"],
+    "subscription_months": ["QTY_IN_SUBS_MONTHS", "total months", "subscription period"]
+  },
+  "metrics": {
+    "revenue_metrics": {
+      "total_revenue": "Sum of ACTUAL_BOOKINGS across all transactions",
+      "average_deal_size": "Average ACTUAL_BOOKINGS per transaction",
+      "recurring_revenue": "Sum of ANNUALIZED_MONTHLY_RECURRING_REVENUE",
+      "monthly_recurring_revenue": "Sum of TRANSACTIONAL_MONTHLY_RECURRING_REVENUE"
+    },
+    "customer_metrics": {
+      "total_customers": "Count of unique CUSTOMER_NAME",
+      "customers_by_region": "Count of customers grouped by LEVEL_1_NAME",
+      "customers_by_segment": "Count of customers grouped by SCMS_NAME",
+      "customers_by_industry": "Count of customers grouped by TOP_VERTICAL_MARKET_NAME"
+    },
+    "product_metrics": {
+      "product_adoption": "Count of transactions by IntersightProduct",
+      "license_tier_distribution": "Count of transactions by IntersightLicenseTier",
+      "consumption_model_preference": "Count of transactions by IntersightConsumption"
+    },
+    "temporal_metrics": {
+      "quarterly_revenue": "Sum of ACTUAL_BOOKINGS grouped by QUARTER",
+      "yearly_revenue": "Sum of ACTUAL_BOOKINGS grouped by YEAR",
+      "monthly_trends": "Sum of TRANSACTIONAL_MONTHLY_RECURRING_REVENUE by month"
+    }
+  },
+  "relationships": {
+    "customer_hierarchy": {
+      "description": "Customer relationships and hierarchies",
+      "fields": ["CUSTOMER_NAME", "SCMS_NAME", "LEVEL_1_NAME", "COUNTRY"]
+    },
+    "product_hierarchy": {
+      "description": "Product and licensing relationships",
+      "fields": ["IntersightProduct", "IntersightLicenseTier", "IntersightConsumption", "IntersightEnterpriseAgreement"]
+    },
+    "temporal_hierarchy": {
+      "description": "Time-based relationships for trend analysis",
+      "fields": ["YEAR", "FISCAL_QUARTER_ID", "QUARTER", "QUARTER_NAME"]
+    },
+    "geographic_hierarchy": {
+      "description": "Geographic relationships for regional analysis",
+      "fields": ["LEVEL_1_NAME", "COUNTRY"]
+    }
+  },
+  "business_rules": {
+    "pricing_rules": {
+      "list_price_validation": "LIST_PRICE should be greater than or equal to ACTUAL_BOOKINGS",
+      "quantity_validation": "QUANTITY should be greater than 0",
+      "contract_duration_validation": "CONTRACT_DURATION should be between 12 and 60 months"
+    },
+    "revenue_rules": {
+      "mrr_calculation": "ANNUALIZED_MONTHLY_RECURRING_REVENUE = (ACTUAL_BOOKINGS / CONTRACT_DURATION) * 12",
+      "subscription_months": "QTY_IN_SUBS_MONTHS = QUANTITY * CONTRACT_DURATION"
+    }
+  }
+}
