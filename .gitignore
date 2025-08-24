@@ -185,6 +185,7 @@ Desktop.ini
 data/checkpoints/
 data/memory/
 agents/schema_context/schema_context.json
+prompts/
 .env.local
 .env.production
 
